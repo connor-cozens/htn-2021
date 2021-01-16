@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import { Navbar } from './components';
+import { Navbar, UserFetch } from './components';
 import './App.css'
 // import logo from './logo.svg';
 
@@ -18,6 +18,9 @@ function App() {
 				} />
 				<Route exact path='/temp2' render={() =>
 					<div>Temporary Page 2</div>
+				} />
+				<Route exact path='/profile' render={() =>
+					<UserFetch />
 				} />
 			</div>
 
