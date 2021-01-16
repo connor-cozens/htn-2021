@@ -22,67 +22,18 @@ router.get('/login', function(req, res, next) {
   var username = req.body.username;
   var password = req.body.password;
 
-  pool.connect(function (err, client, done) {
-
-      var finish = function () {
-          done();
-      };
-  
-      if (err) {
-          console.error('could not connect to cockroachdb', err);
-          finish();
-      }
-
-      async.waterfall([
-          function (next) {
-              // Print out account balances.
-              client.query('SELECT username, email, age, country, current_level, current_xp FROM users WHERE username = $1 AND password = $2', [username, password], next);
-          },
-      ],
-      function (err, results) {
-          if (err) {
-              console.error('Error inserting into and selecting from accounts: ', err);
-              finish();
-          }
-          res.send(results.rows[0]);
-      });
-  });
-});
-
-router.get('/', function(req, res, next) {
-    var pool = new pg.Pool(config);
-
-    pool.connect(function (err, client, done) {
-
-        var finish = function () {
-            done();
-        };
-    
-        if (err) {
-            console.error('could not connect to cockroachdb', err);
-            finish();
-        }
-
-        async.waterfall([
-            function (next) {
-                // Print out account balances.
-                client.query('SELECT * FROM users', next);
-            },
-        ],
-        function (err, results) {
-            if (err) {
-                console.error('Error inserting into and selecting from accounts: ', err);
-                finish();
-            }
-            res.send(results.rows);
-        });
-    });
+  pool.query('SELECT username, email, age, country, current_level, current_xp FROM users WHERE username = $1 AND password = $2', [username, password], (err, results) => {
+    if (err) {
+      console.error('Error retrieving login details: ', err);
+    }
+    res.send(results.rows[0]);
+  })
 });
 
 router.post('/add', function(req, res, next) {
   var pool = new pg.Pool(config);
 
-  console.log(req.body);
+  // console.log(req.body);
   var username = req.body.username;
   var email = req.body.email;
   var age = req.body.age;
@@ -91,28 +42,32 @@ router.post('/add', function(req, res, next) {
   var current_xp = req.body.current_xp;
   var password = req.body.password;
 
-  pool.connect(function (err, client, done) {
-    var finish = function() {
-      done();
-    };
+  pool.query('INSERT into users (username, email, age, country, current_level, current_xp, password) VALUES ($1, $2, $3, $4, $5, $6, $7);', [username, email, age, country, current_level, current_xp, password], (err, results) => {
     if (err) {
-      console.error('Could not connect to corkroachdb', err);
-      finish();
+      console.log('Error inserting into users database: ', err);
     }
-
-    async.waterfall([
-      function(next) {
-        client.query('INSERT into users (username, email, age, country, current_level, current_xp, password) VALUES ($1, $2, $3, $4, $5, $6, $7);', [username, email, age, country, current_level, current_xp, password], next);
-      },
-    ],
-    function (err, results) {
-      if (err) {
-        console.log('Error inserting into users database: ', err);
-        finish();
-      }
-      res.send(results);
-    });
-  });
+    res.send(results);
+  })
 });
+
+router.post('/update', function(req, res, next) {
+  var pool = new pg.Pool(config);
+
+  // console.log(req.body);
+  var username = req.body.username;
+  var email = req.body.email;
+  var age = req.body.age;
+  var country = req.body.country;
+  var current_level = req.body.current_level;
+  var current_xp = req.body.current_xp;
+  var password = req.body.password;
+
+  pool.query('UPDATE users SET username = $1, email = $2, age = $3, country = $4, current_level = $5, current_xp = $6, password = $7 WHERE username = $1;', [username, email, age, country, current_level, current_xp, password], (err, results) => {
+    if (err) {
+      console.log('Error updating user in database: ', err);
+    }
+    res.send(results);
+    })
+  });
 
 module.exports = router;

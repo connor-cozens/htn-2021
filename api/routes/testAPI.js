@@ -16,42 +16,6 @@ var config = {
     }
 };
 
-var pool = new pg.Pool(config);
-
-pool.connect(function (err, client, done) {
-
-    // Close communication with the database and exit.
-    var finish = function () {
-        done();
-        process.exit();
-    };
-
-    if (err) {
-        console.error('could not connect to cockroachdb', err);
-        finish();
-    }
-    async.waterfall([
-            function (results, next) {
-                // Create the 'accounts' table.
-                client.query('SELECT * FROM testtable;', next);
-            }
-        ],
-        function (err, results) {
-            if (err) {
-                console.error('Error inserting into and selecting from accounts: ', err);
-                finish();
-            }
-
-            console.log('Value:');
-            results.rows.forEach(function (row) {
-                console.log(row);
-            });
-
-            finish();
-        });
-});
-
-
 router.get('/', function(req, res, next) {
     // res.send('API is working properly');
     var pool = new pg.Pool(config);

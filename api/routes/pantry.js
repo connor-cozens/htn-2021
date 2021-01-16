@@ -16,11 +16,10 @@ var config = {
     }
 };
 
-router.get('/login', function(req, res, next) {
+router.get('/get_recipe', function(req, res, next) {
   var pool = new pg.Pool(config);
 
-  var username = req.body.username;
-  var password = req.body.password;
+  console.log(req.body);
 
   pool.connect(function (err, client, done) {
 
@@ -49,47 +48,10 @@ router.get('/login', function(req, res, next) {
   });
 });
 
-router.get('/', function(req, res, next) {
-    var pool = new pg.Pool(config);
-
-    pool.connect(function (err, client, done) {
-
-        var finish = function () {
-            done();
-        };
-    
-        if (err) {
-            console.error('could not connect to cockroachdb', err);
-            finish();
-        }
-
-        async.waterfall([
-            function (next) {
-                // Print out account balances.
-                client.query('SELECT * FROM users', next);
-            },
-        ],
-        function (err, results) {
-            if (err) {
-                console.error('Error inserting into and selecting from accounts: ', err);
-                finish();
-            }
-            res.send(results.rows);
-        });
-    });
-});
-
-router.post('/add', function(req, res, next) {
+router.post('/add_recipe', function(req, res, next) {
   var pool = new pg.Pool(config);
 
   console.log(req.body);
-  var username = req.body.username;
-  var email = req.body.email;
-  var age = req.body.age;
-  var country = req.body.country;
-  var current_level = req.body.current_level;
-  var current_xp = req.body.current_xp;
-  var password = req.body.password;
 
   pool.connect(function (err, client, done) {
     var finish = function() {
