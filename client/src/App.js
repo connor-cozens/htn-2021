@@ -1,35 +1,28 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { Navbar } from './components';
+import './App.css'
+// import logo from './logo.svg';
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { apiResponse: "" };
-  }
+function App() {
+	return (
+		<Router>
+		
+			<Navbar />
+			<div className='contentBody'>
+				<Route exact path='/' render={() =>
+					<div>Landing Page</div>
+				} />
+				<Route exact path='/temp1' render={() =>
+					<div>Temporary Page 1</div>
+				} />
+				<Route exact path='/temp2' render={() =>
+					<div>Temporary Page 2</div>
+				} />
+			</div>
 
-  callAPI() {
-      fetch("http://localhost:9000/testAPI")
-          .then(res => res.text())
-          .then(res => this.setState({ apiResponse: res }))
-          .catch(err => err);
-  }
-
-  componentDidMount() {
-      this.callAPI();
-  }
-
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className = "App-title">Welcome to React</h1>
-        </header>
-        <p className = "App-intro">{this.state.apiResponse}</p>
-      </div>
-    );
-  }
+		</Router>
+	);
 }
 
 export default App;
