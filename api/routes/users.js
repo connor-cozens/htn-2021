@@ -43,7 +43,6 @@ router.get('/', function(req, res, next) {
                 finish();
             }
             res.send(results.rows);
-            finish();
         });
     });
 });
@@ -72,7 +71,6 @@ router.post('/', function(req, res, next) {
         finish();
       }
       res.send(results);
-      finish();
     });
   });
 });
