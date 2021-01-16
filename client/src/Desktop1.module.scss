@@ -1,0 +1,131 @@
+.desktop1 {
+    padding: 64px 173px 71px 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-image: url("https://static.overlay-tech.com/assets/c2891fa5-fdf0-4b98-8585-0993d1d2bdd7.png");
+  }
+  .title {
+    font-family: "?????";
+    font-size: 175px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 1);
+    margin-bottom: 10px;
+    text-shadow: 4px 5px 12px black;
+  }
+  .subtitle {
+    font-family: "?????";
+    font-size: 50px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 1);
+    margin-bottom: 60px;
+    margin-left: 427px;
+    text-shadow: 4px 5px 12px black;
+  }
+  .flexWrapperFive {
+    background-color: white;
+    margin-bottom: 20px;
+    margin-left: 242px;
+    border-radius: 10px;
+    padding: 12px 403px 11px 40px;
+    display: flex;
+    align-items: center;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+  }
+  .username {
+    font-family: "Raleway";
+    font-size: 38px;
+    font-weight: 300;
+    color: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(4px);
+  }
+  .flexWrapperFour {
+    background-color: white;
+    margin-bottom: 20px;
+    margin-left: 242px;
+    border-radius: 10px;
+    padding: 14px 414px 9px 40px;
+    display: flex;
+    align-items: flex-start;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+  }
+  .flexWrapperThree {
+    background-color: white;
+    margin-bottom: 20px;
+    margin-left: 242px;
+    border-radius: 10px;
+    padding: 11px 342px 12px 40px;
+    display: flex;
+    align-items: center;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+  }
+  .flexWrapperTwo {
+    background-color: white;
+    margin-bottom: 20px;
+    margin-left: 242px;
+    border-radius: 10px;
+    padding: 11px 195px 12px 40px;
+    display: flex;
+    align-items: center;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+  }
+  .flexWrapperOne {
+    background-color: rgb(68, 143, 68);
+    margin-bottom: 19px;
+    margin-left: 242px;
+    border-radius: 10px;
+    padding: 12px 194px 11px 193px;
+    box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.25);
+    display: flex;
+    align-items: center;
+    border: 1px solid rgba(0, 0, 0, 0.35);
+  }
+  .submit {
+    font-family: "Raleway";
+    font-size: 38px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 1);
+    text-align: center;
+    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  }
+  .selectOther {
+    font-family: "Raleway";
+    font-size: 38px;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.85);
+    text-align: center;
+    margin-bottom: 0px;
+    margin-left: 502px;
+  }
+  .relativeWrapperOne {
+    margin-left: 232px;
+    position: relative;
+  }
+  .frame1 {
+    padding: 00px;
+    position: relative;
+  }
+  .facebookBox {
+    width: 554px;
+    height: 68px;
+    background-color: rgb(63, 63, 238);
+    border-radius: 35px;
+    box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  .facebookLogo {
+    position: absolute;
+    left: 40px;
+    top: 16px;
+  }
+  .facebookLogin {
+    font-family: "Raleway";
+    font-size: 38px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 1);
+    text-align: center;
+    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    position: absolute;
+    right: 39px;
+    top: 0px;
+  }
