@@ -17,6 +17,9 @@ function Navbar() {
             <Button href="/temp2" variant="light" className={styles.menuButton}>
                 Page2
             </Button>
+            <Button href="/profile" variant="light" className={styles.menuButton}>
+                Profile
+            </Button>
         </nav>
 
     )
