@@ -30,6 +30,34 @@ router.get('/login', function(req, res, next) {
   })
 });
 
+router.post('/add-friend', function(req, res, next) {
+  var pool = new pg.Pool(config);
+
+  var username = req.body.username;
+  var friend = req.body.friend;
+
+  pool.query('INSERT INTO friend_list (id, friend_id) VALUES ($1, $2)', [username, friend], (err, results) => {
+    if (err) {
+      console.error('Error adding a friend into list: ', err);
+    }
+    res.send(results);
+  })
+});
+
+router.get('/get-friends', function(req, res, next) {
+  var pool = new pg.Pool(config);
+
+  var id = req.body.id;
+  pool.query('SELECT * FROM users JOIN friend_list ON users.id=friend_list.friend_id AND friend_list.id=$1', [id], (err, results) => {
+    if (err) {
+      console.error('Error retrieving friends list: ', err);
+    }
+    var friend_ids = results;
+    // console.log(friend_ids);
+    res.send(friend_ids);
+  })
+});
+
 router.post('/add', function(req, res, next) {
   var pool = new pg.Pool(config);
 
