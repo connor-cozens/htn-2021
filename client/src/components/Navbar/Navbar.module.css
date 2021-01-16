@@ -1,0 +1,11 @@
+.navbar {
+    position: sticky;
+    top: 0;
+    padding: 0 0;
+}
+
+.menuButton {
+    font-weight: bold !important;
+    font-family: "Nunito Sans";
+    margin-right: 15px;
+}
