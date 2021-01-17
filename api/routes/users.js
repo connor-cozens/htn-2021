@@ -16,12 +16,13 @@ var config = {
     }
 };
 
-router.get('/login', function(req, res, next) {
+router.post('/login', function(req, res, next) {
   var pool = new pg.Pool(config);
 
   var username = req.body.username;
   var password = req.body.password;
 
+  console.log(username + ':' + password);
   pool.query('SELECT username, email, age, country, current_level, current_xp FROM users WHERE username = $1 AND password = $2', [username, password], (err, results) => {
     if (err) {
       console.error('Error retrieving login details: ', err);
