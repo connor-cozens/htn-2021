@@ -159,10 +159,10 @@ router.post('/get_ingredients', function(req, res, next) {
 
 router.post('/save-recipe', function(req,res,next) {
   var pool = new pg.Pool(config); 
-  var user_id = req.body.user_id; 
+  var username = req.body.username; 
   var recipe_id = req.body.recipe_id; 
 
-  pool.query('INSERT into saved_recipes (user_id, recipe_id) VALUES ($1,$2)',[user_id, recipe_id], (err, results)=>{
+  pool.query('INSERT into saved_recipes (username, recipe_id) VALUES ($1,$2)',[username, recipe_id], (err, results)=>{
     if (err) {
       console.error('Error saving recipe: ', err);
 
