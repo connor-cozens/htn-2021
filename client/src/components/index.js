@@ -5,3 +5,4 @@ export { default as SignUpForm } from './SignUpForm/SignUpForm';
 export { default as Pantry } from './Pantry/Pantry';
 export { default as Recipe } from './Pantry/Recipe';
 export { default as Ingredient } from './Pantry/ingredient';
+export { default as Profile } from './Profile/Profile';

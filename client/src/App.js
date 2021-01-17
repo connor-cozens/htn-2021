@@ -1,28 +1,26 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import { Navbar, SignInForm, SignUpForm } from './components';
-import { UserFetch, Pantry } from './components';
+import { Navbar, Pantry, Profile, SignInForm, SignUpForm } from './components';
 import './App.css'
 
 function App() {
 	return (
 		<Router>
-			<div className = 'contentBody'>
-				<Route exact path='/' render={() =>
+			<Route exact path='/' render={() =>
+				<>
 					<Navbar />
-				} />
-				<Route exact path='/signin' render={() =>
-					<SignInForm />
-				} />
-				<Route exact path='/signup' render={() =>
-					<SignUpForm />
-				} />
-
-				<Route exact path='/pantry' render={() =>
-					<Pantry />
-				} />
-			</div>
-
+					<Profile />
+				</>
+			} />
+			<Route exact path='/signin' render={() =>
+				<SignInForm />
+			} />
+			<Route exact path='/signup' render={() =>
+				<SignUpForm />
+			} />
+			<Route exact path='/pantry' render={() =>
+				<Pantry />
+			} />
 		</Router>
 	);
 }
