@@ -58,7 +58,7 @@ function DispBadges() {
 
 function Profile() {
     const [disp, setDisp] = useState(0);
-    const [name, setName] = useState(window.sessionStorage.getItem("usr_username") || "User");
+    const [name, setName] = useState(window.sessionStorage.getItem("usr_username") || "");
     const [title, setTitle] = useState(window.sessionStorage.getItem("usr_title") || "Pistachios are great!");
     const [email, setEmail] = useState(window.sessionStorage.getItem("usr_email") || "");
 

@@ -43,7 +43,7 @@ function Navbar() {
                     <span className={styles.xpLabel}>{userXP}/{userXPReq} XP</span>
                 </div>
                 <div style={{margin: 'auto'}} />
-                <a href="/"><img src="resources/res_avatar_def.png" width="70" height="70" style={{float: 'right'}} /></a>
+                <a href="/signin"><img src="resources/res_avatar_def.png" width="70" height="70" style={{float: 'right'}} /></a>
             </nav>
 
             <nav className={cx("navbar navbar-expand-lg navbar-light shadow-sm", styles.navbar)}>
