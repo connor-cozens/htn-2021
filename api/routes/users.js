@@ -45,7 +45,7 @@ router.post('/add-friend', function(req, res, next) {
   })
 });
 
-router.get('/get-friends', function(req, res, next) {
+router.post('/get-friends', function(req, res, next) {
   var pool = new pg.Pool(config);
 
   var id = req.body.id;
@@ -53,7 +53,7 @@ router.get('/get-friends', function(req, res, next) {
     if (err) {
       console.error('Error retrieving friends list: ', err);
     }
-    var friend_ids = results;
+    var friend_ids = results.rows[0];
     // console.log(friend_ids);
     res.send(friend_ids);
   })

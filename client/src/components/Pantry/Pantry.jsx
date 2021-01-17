@@ -29,26 +29,26 @@ function Pantry() {
                     <Grid className={styles.ingredients}>
                         <Row>
                             <Col size={1}>
-                                <Ingredient className={styles.ingredient} name="cereal"></Ingredient>
+                                <Ingredient className={styles.ingredient} id = '7c5feeab-ff47-40d1-8fdd-7a4b90a276d4' pos = '0' name="cereal"></Ingredient>
                             </Col>
                             <Col size={1}>
-                                <Ingredient className={styles.ingredient} name="cereal"></Ingredient>
-                            </Col>
-                        </Row>
-                        <Row>
-                            <Col size={1}>
-                                <Ingredient className={styles.ingredient} name="cereal"></Ingredient>
-                            </Col>
-                            <Col size={1}>
-                                <Ingredient className={styles.ingredient} name="cereal"></Ingredient>
+                                <Ingredient className={styles.ingredient} id = '7c5feeab-ff47-40d1-8fdd-7a4b90a276d4' pos = '1'  name="cereal"></Ingredient>
                             </Col>
                         </Row>
                         <Row>
                             <Col size={1}>
-                                <Ingredient className={styles.ingredient} name="cereal"></Ingredient>
+                                <Ingredient className={styles.ingredient} id = '7c5feeab-ff47-40d1-8fdd-7a4b90a276d4' pos = '2'  name="cereal"></Ingredient>
                             </Col>
                             <Col size={1}>
-                                <Ingredient className={styles.ingredient} name="cereal"></Ingredient>
+                                <Ingredient className={styles.ingredient} id = '7c5feeab-ff47-40d1-8fdd-7a4b90a276d4' pos = '3'  name="cereal"></Ingredient>
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col size={1}>
+                                <Ingredient className={styles.ingredient} id = '7c5feeab-ff47-40d1-8fdd-7a4b90a276d4' pos = '4'  name="cereal"></Ingredient>
+                            </Col>
+                            <Col size={1}>
+                                <Ingredient className={styles.ingredient} id = '7c5feeab-ff47-40d1-8fdd-7a4b90a276d4' pos = '5'  name="cereal"></Ingredient>
                             </Col>
                         </Row>
                     </Grid>
@@ -74,24 +74,24 @@ function Pantry() {
                 <Grid className={styles.recipeGrid}>
                     <Row>
                         <Col size={1}>
-                            <Recipe uid='10069f4e-b3d3-4ddb-b2df-fee878ddb2a6' name='androidstudio'></Recipe>
+                            <Recipe pos = '0'></Recipe>
                         </Col>
                         <Col size={1}>
-                            <Recipe uid='48d6e790-91db-44c7-8aea-02e587f67509' name='pistachio steak'></Recipe>
+                            <Recipe pos = '1'></Recipe>
                         </Col>
                         <Col size={1}>
-                            <Recipe uid='49024169-1a42-43b3-aeae-72b0d66b891d' name='declaration of independance'></Recipe>
+                            <Recipe pos = '2'></Recipe>
                         </Col>
                     </Row>
                     <Row>
                         <Col size={1}>
-                            <Recipe uid='8bb70095-98d0-4ae6-96aa-885216034738' name='subway rat'></Recipe>
+                            <Recipe pos = '3'></Recipe>
                         </Col>
                         <Col size={1}>
-                            <Recipe uid='9dc35e30-baf0-4f20-9c4a-9c19336e2cfa' name='cereal'></Recipe>
+                            <Recipe pos = '4'></Recipe>
                         </Col>
                         <Col size={1}>
-                            <Recipe uid='9f89682d-ee66-412d-8f56-7a4c9b103fe3' name='oatmeal'></Recipe>
+                            <Recipe pos = '5'></Recipe>
                         </Col>
                     </Row>
                 </Grid>

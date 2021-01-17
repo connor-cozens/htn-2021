@@ -23,13 +23,13 @@ function FriendsList() {
                 <h2 className={styles.friendsTitle}>Your Culinary Colleagues</h2>
                 <Grid>
                     <Row className={styles.rowSpacer}>
-                        <Col size={1}><Friend></Friend></Col>
+                        <Col size={1}><Friend id='85bd6d67-bc89-4a1c-acb2-09a6405de49b'></Friend></Col>
                     </Row>
                     <Row className={styles.rowSpacer}>
-                        <Col size={1}><Friend></Friend></Col>
+                        <Col size={1}><Friend id='b41f5de7-d59d-495c-b4a0-2eca3d5e3a5a'></Friend></Col>
                     </Row>
                     <Row className={styles.rowSpacer}>
-                        <Col size={1}><Friend></Friend></Col>
+                        <Col size={1}><Friend id='b41f5de7-d59d-495c-b4a0-2eca3d5e3a5a'></Friend></Col>
                     </Row>
                 </Grid>
             </div>
