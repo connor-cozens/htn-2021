@@ -15,6 +15,21 @@ var config = {
           .toString(),
   }
 };
+
+/* RIP COCKROACH :((((
+var config = {
+    user: 'alyshan',
+    password: 'password1234',
+    host: 'free-tier.gcp-us-central1.cockroachlabs.cloud',
+    database: 'direct-weasel-217.food_app',
+    port: 26257,
+    ssl: {
+        ca: fs.readFileSync('./certs/cc-ca.crt')
+            .toString(),
+    }
+}; 
+*/
+
 /*
 router.get('/get_recipe', function(req, res, next) {
   var pool = new pg.Pool(config);
@@ -139,6 +154,20 @@ router.post('/get_ingredients', function(req, res, next) {
       console.error('Error getting ingredients: ', err);
     }
     res.send(results.rows);
+  })
+});
+
+router.post('/save-recipe', function(req,res,next) {
+  var pool = new pg.Pool(config); 
+  var user_id = req.body.user_id; 
+  var recipe_id = req.body.recipe_id; 
+
+  pool.query('INSERT into saved_recipes (user_id, recipe_id) VALUES ($1,$2)',[user_id, recipe_id], (err, results)=>{
+    if (err) {
+      console.error('Error saving recipe: ', err);
+
+    }
+    res.send(results.rows[0]);
   })
 });
 module.exports = router;

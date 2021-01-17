@@ -5,6 +5,19 @@ var fs = require('fs');
 var pg = require('pg');
 
 var config = {
+  user: 'user',
+  password: 'password1234',
+  host: 'trusty-lemur-8c3.gcp-northamerica-northeast1.cockroachlabs.cloud',
+  database: 'food_app',
+  port: 26257,
+  ssl: {
+      ca: fs.readFileSync('./certs/trusty-lemur-ca.crt')
+          .toString(),
+  }
+};
+
+/*
+var config = {
     user: 'user',
     password: 'password1234',
     host: 'trusty-lemur-8c3.gcp-northamerica-northeast1.cockroachlabs.cloud',
@@ -15,7 +28,7 @@ var config = {
             .toString(),
     }
 };
-
+*/
 router.post('/login', function(req, res, next) {
   var pool = new pg.Pool(config);
 
