@@ -19,8 +19,6 @@ export const Col = styled.div`
 `
 
 function Pantry() {
-    var IngredientsList = ["Ingredient 1", "Ingredient 2", "Ingredient 3"]
-    var RecipesList = ["Recipe 1", "Recipe 2", "Recipe 3"]
     return (
         <div className={styles.wrapped}>
             <div className={styles.filters}>

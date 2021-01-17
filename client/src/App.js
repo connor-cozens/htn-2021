@@ -12,33 +12,31 @@ function App() {
 					<Profile />
 				</>
 			} />
-				} />
-				<Route exact path='/signin' render={() =>
-					<>
-						<Navbar />
-						<SignInForm />
-					</>
-				} />
-				<Route exact path='/signup' render={() =>
-					<>
-						<Navbar />
-						<SignUpForm />
-					</>
-				} />
+			<Route exact path='/signin' render={() =>
+				<>
+					<Navbar />
+					<SignInForm />
+				</>
+			} />
+			<Route exact path='/signup' render={() =>
+				<>
+					<Navbar />
+					<SignUpForm />
+				</>
+			} />
 
-				<Route exact path='/pantry' render={() =>
-					<>
-						<Navbar />
-						<Pantry />
-					</>
-				} />
-				<Route exact path='/colleagues' render={() =>
-					<>
-						<Navbar />
-						<FriendsList />
-					</>
-				} />
-			</div>
+			<Route exact path='/pantry' render={() =>
+				<>
+					<Navbar />
+					<Pantry />
+				</>
+			} />
+			<Route exact path='/colleagues' render={() =>
+				<>
+					<Navbar />
+					<FriendsList />
+				</>
+			} />
 		</Router>
 	);
 }
