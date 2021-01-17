@@ -1,15 +1,17 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import { Navbar, SignInForm, SignUpForm } from './components';
-import { UserFetch, Pantry, FriendsList } from './components';
+import { Navbar, Pantry, Profile, SignInForm, SignUpForm, FriendsList, UserFetch } from './components';
 import './App.css'
 
 function App() {
 	return (
 		<Router>
-			<div className = 'contentBody'>
-				<Route exact path='/' render={() =>
+			<Route exact path='/' render={() =>
+				<>
 					<Navbar />
+					<Profile />
+				</>
+			} />
 				} />
 				<Route exact path='/signin' render={() =>
 					<>
@@ -37,7 +39,6 @@ function App() {
 					</>
 				} />
 			</div>
-
 		</Router>
 	);
 }
