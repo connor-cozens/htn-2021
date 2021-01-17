@@ -1,29 +1,62 @@
 import React, { Component } from 'react';
 import styles from './Recipe.module.scss';
+import Card from 'react-bootstrap/Card';
+import axios from 'axios';
 
 export class Recipe extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            title: "temp title",
-            description: "temp description",
-            imgLink: "https://1843784937.rsc.cdn77.org/wp-content/uploads/2019/04/krabby-patty-400x200.jpg",
-            ingredients: []
+            title: '',
+            description: '',
+            imgLink: '',
+            ingredients: '',
+            xp: '',
+            uid: this.props.uid,
+            name: this.props.name
         }
     }
-    
-    getRecipes() {
-        
+
+    componentDidMount() {
+        const getrecipe = async () => {
+            const req_body = {recipe_ud: this.state.uid, recipe_name: this.state.name};
+            await axios.post("http://localhost:9000/pantry/get-all-recipes", req_body)
+                .then(res => {
+                    console.log("Success 1");
+                    console.log(res.data);
+                    if (res.data) {
+                        console.log("Success 2");
+                        this.setState({
+                            title: res.data[this.props.pos].recipe_name,
+                            description: res.data[this.props.pos].recipe_link,
+                            imgLink: res.data[this.props.pos].imageurl,
+                            xp: res.data[this.props.pos].xp
+                        })
+                    }
+                })
+                .catch(err => {
+                    console.log("Error: ", err);
+                });
+                console.log("ENDED");
+            }
+            getrecipe();
     }
-    
+
     render() {
         return (
             <div className={styles.wrapper}>
-                <div className={styles.recipe}>
-                    <h2 className = {styles.title}>{this.state.title}</h2>
-                    <p>{this.state.description}</p>
-                    <p>{this.state.ingredients}</p>
-                </div>
+                <Card bg = 'light' border = 'dark' style={{ width: '18rem' }}>
+                    <Card.Img className = {styles.recipeImage} variant="top" src={this.state.imgLink} />
+                    <Card.Body>
+                        <Card.Title>{this.state.title}</Card.Title>
+                        <Card.Text>{this.state.description}</Card.Text>
+                        <Card.Text>Experience: {this.state.xp}</Card.Text>
+                    </Card.Body>
+                    <Card.Body>
+                        <Card.Link href="#">Save Recipe</Card.Link>
+                        <Card.Link href="#">Make Recipe</Card.Link>
+                    </Card.Body>
+                </Card>
             </div>
         )
     }
