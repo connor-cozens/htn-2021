@@ -5,13 +5,13 @@ var fs = require('fs');
 var pg = require('pg');
 
 var config = {
-    user: 'alyshan',
+    user: 'user',
     password: 'password1234',
-    host: 'free-tier.gcp-us-central1.cockroachlabs.cloud',
-    database: 'direct-weasel-217.defaultdb',
+    host: 'trusty-lemur-8c3.gcp-northamerica-northeast1.cockroachlabs.cloud',
+    database: 'food_app',
     port: 26257,
     ssl: {
-        ca: fs.readFileSync('./certs/cc-ca.crt')
+        ca: fs.readFileSync('./certs/trusty-lemur-ca.crt')
             .toString(),
     }
 };
