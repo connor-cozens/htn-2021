@@ -1,13 +1,13 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { Navbar, SignInForm, SignUpForm } from './components';
-import { Navbar, UserFetch, Pantry } from './components';
+import { UserFetch, Pantry } from './components';
 import './App.css'
 
 function App() {
 	return (
 		<Router>
-		
+			<div className = 'contentBody'>
 				<Route exact path='/' render={() =>
 					<Navbar />
 				} />
