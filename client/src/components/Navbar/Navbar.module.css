@@ -1,11 +1,83 @@
+.header {
+    background-color: #7DCB56 !important;
+}
+
 .navbar {
     position: sticky;
     top: 0;
-    padding: 0 0;
+    padding: 0 1em !important;
+    background-color: #66AD42 !important;
 }
 
-.menuButton {
+.shadedMenuText {
     font-weight: bold !important;
-    font-family: "Nunito Sans";
+    font-family: "Raleway";
     margin-right: 15px;
+    color: white !important;
+    background-color: transparent !important;
+    border-color: transparent !important;
+    text-shadow: -1px -1px 2px #777, 0px 0px 0px #777, 1px 1px 0px #333, 1px 1px 4px #000;
+    font-size: 24px !important;
+}
+
+a.shadedMenuText:hover {
+    color: rgb(255, 255, 215) !important;
+}
+
+.appTitle {
+    margin-left: 40px;
+    /* margin-right: 7em; */
+    white-space: nowrap;
+    font-size: 48px !important;
+    text-shadow: 3px 3px 4px #222, 0px 0px 0px #222, 1px 1px 0px #222, 1px 1px 6px #222;
+    text-decoration: none;
+}
+
+.xpBar {
+    width: 600px;
+    height: 35px;
+    position: absolute;
+    left: -30px;
+    bottom: -20px;
+    background-color: #48A21B;
+    border-radius: 4px;
+    min-width: 20px;
+}
+
+.xpBarWrapper {
+    position: relative;
+    width: 600px;
+}
+
+.xpFill {
+    background-color: #236700;
+}
+
+.xpLevel {
+    color: #226701;
+    z-index: 3;
+    position: absolute;
+    font-weight: bold;
+    font-size: 40px;
+    left: -45px;
+    bottom: -30px;
+    text-shadow: 3px 3px 7px #fff, 0px 0px 10px #fff, 1px 1px 6px #fff, 1px 1px 6px #fff;
+}
+
+.xpLevelPuff {
+    z-index: 2;
+    position: absolute;
+    left: -70px;
+    bottom: -37px;
+}
+
+.xpLabel {
+    font-family: 'Roboto';
+    font-size: 24px;
+    color: white;
+    position: absolute;
+    bottom: -21px;
+    left: 20px;
+    width: 500px;
+    text-align: center;
 }
