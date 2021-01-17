@@ -1,0 +1,23 @@
+.overallForm {
+    width: 400px;
+    margin: 0 auto;
+}
+.overallForm > * {
+    padding-top: 7px;
+    padding-bottom: 7px;
+}
+.contButton {
+    background-color: #7DCB56 !important;
+    border-color: #528539 !important;
+    color: white;
+    width: 100%;
+    padding: 0.25rem 1.5rem !important;
+    font-size: 1.25rem !important;
+    font-family: "Nunito Sans";
+}
+.alternateBlurb {
+    float: right;
+    padding-top: 0;
+    font-size: 12px;
+    color: #7f7f7f;
+}
