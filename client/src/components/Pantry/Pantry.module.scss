@@ -1,5 +1,5 @@
 .wrapped {
-    background: rgb(170, 238, 170);
+    background: #7DCB56;
 }
 
 .filters {
@@ -35,15 +35,22 @@
 }
 
 .sortingGroup {
+    background: white;
+    border: 1px solid black;
+    margin: 10px 10px 10px 10px;
     height: 33%;
     padding: 5px 5px 5px 5px;
 }
 
 .filteringGroup {
-    height: 33%;
+    background: white;
+    border: 1px solid black;
+    margin: 10px 10px 10px 10px;
+    height: 37%;
     padding: 5px 5px 5px 5px;
 }
 .sortTitle {
+    margin-top:10px;
     text-align: center;
 }
 

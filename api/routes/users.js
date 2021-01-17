@@ -5,17 +5,30 @@ var fs = require('fs');
 var pg = require('pg');
 
 var config = {
-    user: 'alyshan',
+  user: 'user',
+  password: 'password1234',
+  host: 'trusty-lemur-8c3.gcp-northamerica-northeast1.cockroachlabs.cloud',
+  database: 'food_app',
+  port: 26257,
+  ssl: {
+      ca: fs.readFileSync('./certs/trusty-lemur-ca.crt')
+          .toString(),
+  }
+};
+
+/*
+var config = {
+    user: 'user',
     password: 'password1234',
-    host: 'free-tier.gcp-us-central1.cockroachlabs.cloud',
-    database: 'direct-weasel-217.food_app',
+    host: 'trusty-lemur-8c3.gcp-northamerica-northeast1.cockroachlabs.cloud',
+    database: 'food_app',
     port: 26257,
     ssl: {
-        ca: fs.readFileSync('./certs/cc-ca.crt')
+        ca: fs.readFileSync('./certs/trusty-lemur-ca.crt')
             .toString(),
     }
 };
-
+*/
 router.post('/login', function(req, res, next) {
   var pool = new pg.Pool(config);
 
@@ -45,7 +58,7 @@ router.post('/add-friend', function(req, res, next) {
   })
 });
 
-router.get('/get-friends', function(req, res, next) {
+router.post('/get-friends', function(req, res, next) {
   var pool = new pg.Pool(config);
 
   var id = req.body.id;
@@ -53,7 +66,7 @@ router.get('/get-friends', function(req, res, next) {
     if (err) {
       console.error('Error retrieving friends list: ', err);
     }
-    var friend_ids = results;
+    var friend_ids = results.rows[0];
     // console.log(friend_ids);
     res.send(friend_ids);
   })

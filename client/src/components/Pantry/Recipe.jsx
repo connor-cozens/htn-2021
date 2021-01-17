@@ -20,17 +20,17 @@ export class Recipe extends React.Component {
     componentDidMount() {
         const getrecipe = async () => {
             const req_body = {recipe_ud: this.state.uid, recipe_name: this.state.name};
-            await axios.post("http://localhost:9000/pantry/recipe", req_body)
+            await axios.post("http://localhost:9000/pantry/get-all-recipes", req_body)
                 .then(res => {
                     console.log("Success 1");
                     console.log(res.data);
                     if (res.data) {
                         console.log("Success 2");
                         this.setState({
-                            title: res.data.recipe_name,
-                            description: res.data.recipe_link,
-                            imgLink: res.data.imageurl,
-                            xp: res.data.xp
+                            title: res.data[this.props.pos].recipe_name,
+                            description: res.data[this.props.pos].recipe_link,
+                            imgLink: res.data[this.props.pos].imageurl,
+                            xp: res.data[this.props.pos].xp
                         })
                     }
                 })
@@ -45,7 +45,7 @@ export class Recipe extends React.Component {
     render() {
         return (
             <div className={styles.wrapper}>
-                <Card style={{ width: '18rem' }}>
+                <Card bg = 'light' border = 'dark' style={{ width: '18rem' }}>
                     <Card.Img className = {styles.recipeImage} variant="top" src={this.state.imgLink} />
                     <Card.Body>
                         <Card.Title>{this.state.title}</Card.Title>

@@ -5,6 +5,19 @@ var fs = require('fs');
 var pg = require('pg');
 
 var config = {
+  user: 'user',
+  password: 'password1234',
+  host: 'trusty-lemur-8c3.gcp-northamerica-northeast1.cockroachlabs.cloud',
+  database: 'food_app',
+  port: 26257,
+  ssl: {
+      ca: fs.readFileSync('./certs/trusty-lemur-ca.crt')
+          .toString(),
+  }
+};
+
+/* RIP COCKROACH :((((
+var config = {
     user: 'alyshan',
     password: 'password1234',
     host: 'free-tier.gcp-us-central1.cockroachlabs.cloud',
@@ -14,7 +27,9 @@ var config = {
         ca: fs.readFileSync('./certs/cc-ca.crt')
             .toString(),
     }
-};
+}; 
+*/
+
 /*
 router.get('/get_recipe', function(req, res, next) {
   var pool = new pg.Pool(config);
@@ -60,6 +75,17 @@ router.post('/recipe', function(req, res, next) {
     res.send(results.rows[0]);
   })
 });
+
+router.post('/get-all-recipes', function(req, res, next) {
+  var pool = new pg.Pool(config);
+  
+  pool.query('SELECT recipe_name, xp, recipe_link, imageurl FROM recipes', (err, results) => {
+    if (err) {
+      console.error('Error retrieving recipe list: ', err);
+    }
+    res.send(results.rows)
+  })
+})
 /*
 router.post('/add_recipe', function(req, res, next) {
   var pool = new pg.Pool(config);
@@ -119,13 +145,27 @@ router.post('/add_ingredients', function(req, res, next) {
 
 
 
-router.get('/get_ingredients', function(req, res, next) {
+router.post('/get_ingredients', function(req, res, next) {
   var pool = new pg.Pool(config);
   var recipe_id = req.body.recipe_id; 
 
-  pool.query(`SELECT food_item FROM ingredients WHERE recipe_id=\'${recipe_id}\'`, (err, results) => {
+  pool.query(`SELECT food_item FROM ingredients WHERE recipe_id=$1`,[recipe_id], (err, results) => {
     if(err) {
       console.error('Error getting ingredients: ', err);
+    }
+    res.send(results.rows);
+  })
+});
+
+router.post('/save-recipe', function(req,res,next) {
+  var pool = new pg.Pool(config); 
+  var username = req.body.username; 
+  var recipe_id = req.body.recipe_id; 
+
+  pool.query('INSERT into saved_recipes (username, recipe_id) VALUES ($1,$2)',[username, recipe_id], (err, results)=>{
+    if (err) {
+      console.error('Error saving recipe: ', err);
+
     }
     res.send(results.rows[0]);
   })
