@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import { Navbar, Pantry, Profile, SignInForm, SignUpForm } from './components';
+import { Navbar, Pantry, Profile, SignInForm, SignUpForm, FriendsList, UserFetch } from './components';
 import './App.css'
 
 function App() {
@@ -12,15 +12,33 @@ function App() {
 					<Profile />
 				</>
 			} />
-			<Route exact path='/signin' render={() =>
-				<SignInForm />
-			} />
-			<Route exact path='/signup' render={() =>
-				<SignUpForm />
-			} />
-			<Route exact path='/pantry' render={() =>
-				<Pantry />
-			} />
+				} />
+				<Route exact path='/signin' render={() =>
+					<>
+						<Navbar />
+						<SignInForm />
+					</>
+				} />
+				<Route exact path='/signup' render={() =>
+					<>
+						<Navbar />
+						<SignUpForm />
+					</>
+				} />
+
+				<Route exact path='/pantry' render={() =>
+					<>
+						<Navbar />
+						<Pantry />
+					</>
+				} />
+				<Route exact path='/colleagues' render={() =>
+					<>
+						<Navbar />
+						<FriendsList />
+					</>
+				} />
+			</div>
 		</Router>
 	);
 }
