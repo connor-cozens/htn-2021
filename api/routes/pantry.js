@@ -5,6 +5,19 @@ var fs = require('fs');
 var pg = require('pg');
 
 var config = {
+  user: 'user',
+  password: 'password1234',
+  host: 'trusty-lemur-8c3.gcp-northamerica-northeast1.cockroachlabs.cloud',
+  database: 'food_app',
+  port: 26257,
+  ssl: {
+      ca: fs.readFileSync('./certs/trusty-lemur-ca.crt')
+          .toString(),
+  }
+};
+
+/* RIP COCKROACH :((((
+var config = {
     user: 'alyshan',
     password: 'password1234',
     host: 'free-tier.gcp-us-central1.cockroachlabs.cloud',
@@ -14,7 +27,8 @@ var config = {
         ca: fs.readFileSync('./certs/cc-ca.crt')
             .toString(),
     }
-};
+}; 
+*/
 /*
 router.get('/get_recipe', function(req, res, next) {
   var pool = new pg.Pool(config);
