@@ -1,19 +1,63 @@
+.wrapped {
+    background: rgb(170, 238, 170);
+}
+
 .filters {
-    border: 1px solid black;
+    // border: 1px solid black;
     width: 25%;
-    height: 100%;
+    height: 1000px;
     float: left;
 }
 
 .recipes {
-    border: 1px solid red;
-    width: 75%;
-    height: 100%;
-    display:flex;
-    float: right;
-    justify-content:right;
+    // border: 1px solid red;
+    width: 100%;
+    height: 1000px;
+    // display:flex;
+    // float: right;
+    // justify-content:right;
 }
 
-.recipeBlock {
+.recipeGrid {
     font-weight: bold;
+}
+
+.ingredientsTitle {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+.ingredients {
+    float: center;
+    height: 33%;
+    padding: 5px 5px 5px 5px;
+}
+
+.sortingGroup {
+    height: 33%;
+    padding: 5px 5px 5px 5px;
+}
+
+.filteringGroup {
+    height: 33%;
+    padding: 5px 5px 5px 5px;
+}
+.sortTitle {
+    text-align: center;
+}
+
+.recipesTitle {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+.sortButton {
+    width:60%;
+    margin-left:20%;
+    margin-right:20%;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }

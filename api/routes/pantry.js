@@ -48,7 +48,7 @@ router.get('/get_recipe', function(req, res, next) {
   });
 });
 */
-router.get('/recipe', function(req, res, next) {
+router.post('/recipe', function(req, res, next) {
   var pool = new pg.Pool(config); 
   var recipe_ud = req.body.recipe_ud; //note the type lol i fucked up when i made the database
   var recipe_name = req.body.recipe_name; 

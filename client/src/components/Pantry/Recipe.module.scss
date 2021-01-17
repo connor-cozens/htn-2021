@@ -1,18 +1,14 @@
 .wrapper {
     width: 250px;
-    height: 250px;
-    border: 1px solid black;
-    // display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    background-image: url("https://amymhaddad.s3.amazonaws.com/morocco-blue.png");
+    margin-left: 20px;
+    height: 100%;
+    padding-bottom: 10px;
 }
 
 .recipeImage {
     width: 250px;
     height: 250px;
-    object-fit: cover;
+    object-fit:fill;
 }
 
 .title {
