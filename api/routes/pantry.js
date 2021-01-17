@@ -15,7 +15,7 @@ var config = {
             .toString(),
     }
 };
-
+/*
 router.get('/get_recipe', function(req, res, next) {
   var pool = new pg.Pool(config);
 
@@ -47,7 +47,20 @@ router.get('/get_recipe', function(req, res, next) {
       });
   });
 });
+*/
+router.post('/recipe', function(req, res, next) {
+  var pool = new pg.Pool(config); 
+  var recipe_ud = req.body.recipe_ud; //note the type lol i fucked up when i made the database
+  var recipe_name = req.body.recipe_name; 
 
+  pool.query('SELECT recipe_name, xp, recipe_link, imageurl FROM recipes WHERE recipe_ud = $1 AND recipe_name=$2',[recipe_ud,recipe_name], (err, results) => {
+    if (err) {
+      console.error('Error retrieving recipe: ', err);
+    }
+    res.send(results.rows[0]);
+  })
+});
+/*
 router.post('/add_recipe', function(req, res, next) {
   var pool = new pg.Pool(config);
 
@@ -76,5 +89,45 @@ router.post('/add_recipe', function(req, res, next) {
     });
   });
 });
+*/
+router.post('/addrecipe', function(req, res, next) {
+  var pool = new pg.Pool(config);
+  var recipe_name = req.body.recipe_name;
+  var xp = req.body.xp; 
+  var recipe_link = req.body.recipe_link; 
+  var imageurl = req.body.imageurl; 
+    pool.query('INSERT into recipes (recipe_name, xp, recipe_link, imageurl) VALUES ($1, $2, $3, $4)', [recipe_name, xp, recipe_link, imageurl], (err, results) => {
+    if(err) {
+      console.error('Error adding recipe: ', err); 
+    }
+    res.send(results.rows[0]);
+  })
+});
 
+router.post('/add_ingredients', function(req, res, next) {
+  var pool = new pg.Pool(config); 
+  var recipe_id = req.body.recipe_id; 
+  var food_item = req.body.food_item; 
+
+  pool.query('INSERT into ingredients (recipe_id, food_item) VALUES ($1, $2)',[recipe_id, food_item], (err, results) => {
+    if (err) {
+      console.error('Error adding ingredients: ', err); 
+    }
+    res.send(results.rows[0]); 
+  })
+});
+
+
+
+router.get('/get_ingredients', function(req, res, next) {
+  var pool = new pg.Pool(config);
+  var recipe_id = req.body.recipe_id; 
+
+  pool.query(`SELECT food_item FROM ingredients WHERE recipe_id=\'${recipe_id}\'`, (err, results) => {
+    if(err) {
+      console.error('Error getting ingredients: ', err);
+    }
+    res.send(results.rows[0]);
+  })
+});
 module.exports = router;

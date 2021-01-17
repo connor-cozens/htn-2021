@@ -30,7 +30,6 @@ function Navbar() {
     }, []);
 
     return (
-
         <>
             <nav className={cx("navbar navbar-expand-lg navbar-light", styles.header)}>
                 <a href="/"><img src="resources/res_icon.png" width="70" height="70" /></a>
@@ -61,7 +60,6 @@ function Navbar() {
                 </Button>
             </nav>
         </>
-
     )
 }
 
