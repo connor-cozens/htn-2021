@@ -63,6 +63,12 @@ function SignUpForm() {
 
     return (
         <Form className={styles.overallForm}>
+            <div className={styles.title}>
+                <span>Pit-stach.io</span>
+            </div>
+            <div className={styles.description}>
+                <span>Start your food journey today.</span>
+            </div>
             <div>
                 <Form.Control type="text" placeholder="Name" onChange={(evt) => setUserInput(evt.target.value)} />
             </div>
@@ -87,8 +93,14 @@ function SignUpForm() {
                     Continue
                 </Button>
             </div>
+            <div>
+                <Button className={styles.fbButton} onClick={() => getSignUpRes(userInput, emailInput, passInput, passCnfInput, ageInput, countryInput)}>
+                    Continue with Facebook
+                </Button>
+            </div>
             <div className={styles.alternateBlurb}>
-                <a href="signin">Sign In</a>
+                <span>Already have an account?  </span>
+                <a href="signin"><b>  Sign In.</b></a>
             </div>
         </Form>
     )

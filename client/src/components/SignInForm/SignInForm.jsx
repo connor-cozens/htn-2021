@@ -30,9 +30,15 @@ function SignInForm() {
             });
         console.log("ENDED");
     }
-
+    
     return (
         <Form className={styles.overallForm}>
+            <div className={styles.title}>
+                <span>Pit-stach.io</span>
+            </div>
+            <div className={styles.description}>
+                <span>Ready to spice it up?</span>
+            </div>
             <div>
                 <Form.Control type="text" placeholder="Email" onChange={(evt) => setUserInput(evt.target.value)} />
             </div>
@@ -45,7 +51,8 @@ function SignInForm() {
                 </Button>
             </div>
             <div className={styles.alternateBlurb}>
-                <a href="signup">Sign Up</a>
+                <span>Don't have an account?  </span>
+                <a href="signup"><b>  Sign Up.</b></a>
             </div>
         </Form>
     )
