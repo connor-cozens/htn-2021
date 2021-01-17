@@ -18,7 +18,6 @@ export const Col = styled.div`
     flex: ${(props) => props.size};
 `
 
-
 function Pantry() {
     var IngredientsList = ["Ingredient 1", "Ingredient 2", "Ingredient 3"]
     var RecipesList = ["Recipe 1", "Recipe 2", "Recipe 3"]
@@ -55,13 +54,13 @@ function Pantry() {
                     </Grid>
                 </div>
                 <div className={styles.sortingGroup}>
-                    <h2  className={styles.sortTitle}>Sort Recipes</h2>
+                    <h2 className={styles.sortTitle}>Sort Recipes</h2>
                     <Button className={styles.sortButton}> A-Z</Button>
                     <Button className={styles.sortButton}>Z-A</Button>
                     <Button className={styles.sortButton}>Lowest Cooking Time</Button>
                     <Button className={styles.sortButton}>Highest Experience</Button>
                 </div>
-                <div className={styles.filterGroup}>
+                <div className={styles.filteringGroup}>
                     <h2 className={styles.sortTitle}>Filter Recipes</h2>
                     <Button className={styles.sortButton}>Breakfast</Button>
                     <Button className={styles.sortButton}>Appetizers</Button>
