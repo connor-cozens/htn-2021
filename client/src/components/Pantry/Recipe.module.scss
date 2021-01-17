@@ -1,0 +1,23 @@
+.wrapper {
+    width: 250px;
+    height: 250px;
+    border: 1px solid black;
+    // display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background-image: url("https://amymhaddad.s3.amazonaws.com/morocco-blue.png");
+}
+
+.recipeImage {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+}
+
+.title {
+    position: relative;
+    top: 5px;
+    text-align: center;
+
+}

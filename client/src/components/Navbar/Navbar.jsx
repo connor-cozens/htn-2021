@@ -20,6 +20,9 @@ function Navbar() {
             <Button href="/profile" variant="light" className={styles.menuButton}>
                 Profile
             </Button>
+            <Button href="/pantry" variant="light" className={styles.menuButton}>
+                Pantry
+            </Button>
         </nav>
 
     )

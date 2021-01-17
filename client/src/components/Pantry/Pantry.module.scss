@@ -1,0 +1,19 @@
+.filters {
+    border: 1px solid black;
+    width: 25%;
+    height: 100%;
+    float: left;
+}
+
+.recipes {
+    border: 1px solid red;
+    width: 75%;
+    height: 100%;
+    display:flex;
+    float: right;
+    justify-content:right;
+}
+
+.recipeBlock {
+    font-weight: bold;
+}
